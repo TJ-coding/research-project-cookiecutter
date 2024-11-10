@@ -1,0 +1,20 @@
+# == COMMANDS ==
+
+{% raw %}
+default:
+	just -l
+
+# Updates the paths.yaml file and path variables in the justfile
+update-path:
+	#!/usr/bin/env bash
+	python misc/update_paths.py
+	python misc/write_paths_to_justfile.py
+
+
+# Runs the coverage unittest program
+test:
+	PYTHONPATH=src coverage run --source=./ -m unittest discover -s tests -p "*test*.py"
+	coverage html --rcfile={{{{path_of_this_file}}}}/misc/.coveragerc
+	echo "Open {{{{path_of_this_file}}}}/htmlcov/index.html with live server plugin."
+	echo -e "\033[0;32mhttp://127.0.0.1:5500/htmlcov\033[0m"
+{% endraw %}

@@ -1,0 +1,13 @@
+Data:
+  Preprocessed:
+    SciKGCData:
+      entities2text.txt:
+      relation2text.txt:
+      test.txt:
+      train.txt:
+      val.txt:
+    bm25_descriptions.ndjson:
+    entities.txt:
+    entities2id.ndjson:
+    entity2synonyms.ndjson:
+  Raw:
